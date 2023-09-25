@@ -63,3 +63,23 @@ function displayPokemons(pokemon){
         listWrapper.appendChild(listItem);
     });
 }
+
+searchInput.addEventListener('keyup',handleSearch);
+
+function handleSearch(){
+    const searchItem = searchInput.value.toLowerCase();
+    let filteredPokemon;
+
+    if(numberFilter.checked){
+        filteredPokemon = allPokemons.filter((pokemon)=>{
+            const pokemonID = pokemon.url.split('/')[6];
+            return pokemonID.startsWith(searchItem)
+        })
+    }else if(numberFilter.checked){
+        filteredPokemon = allPokemons.filter((pokemon)=>{
+            pokemon.name.toLowerCase().startsWith(searchItem);
+        })
+    }else {
+        filteredPokemon = allPokemons;
+    }
+}
