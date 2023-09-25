@@ -4,6 +4,7 @@ const searchInput = document.querySelector('#search-input');
 const numberFilter = document.querySelector('#number');
 const nameFilter = document.querySelector('#name');
 const notFoundMessage = document.querySelector('#not-found-message');
+const closeButton = document.querySelector('.search-close-icon');
 
 let allPokemons = [];
 
@@ -75,11 +76,27 @@ function handleSearch(){
             const pokemonID = pokemon.url.split('/')[6];
             return pokemonID.startsWith(searchItem)
         })
-    }else if(numberFilter.checked){
+    }else if(nameFilter.checked){
         filteredPokemon = allPokemons.filter((pokemon)=>{
             pokemon.name.toLowerCase().startsWith(searchItem);
         })
     }else {
         filteredPokemon = allPokemons;
     }
+
+    displayPokemons(filteredPokemon);
+
+    if(filteredPokemon.length===0){
+        notFoundMessage.style.display = 'block';
+    }else {
+        notFoundMessage.style.display = 'none';
+    }
+}
+
+closeButton.addEventListener('click',clearSearch);
+
+function clearSearch(){
+    searchInput.value = '';
+    displayPokemons(allPokemons);
+    notFoundMessage.style.display = 'none';
 }
