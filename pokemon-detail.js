@@ -166,6 +166,50 @@ function displayPokemonDetails(pokemon){
     document.querySelector('.pokemon-detail-wrap .pokemon-detail p.body3-fonts.weight').textContent = `${weight/10} kg`
     document.querySelector('.pokemon-detail-wrap .pokemon-detail p.body3-fonts.height').textContent = `${height/10} kg`
 
+    const abilitiesWrapper = document.querySelector('.pokemon-detail-wrap .pokemon-detail-move');
 
+    abilities.forEach(({ ability }) => {
+        createAndAppendElement(abilitiesWrapper,'p',{
+            className: 'body3-fonts',
+            textContent: ability.name,
+        })
+    })
 
+    const statWrapper = document.querySelector('stats-wrapper');
+    statWrapper.innerHTML = '';
+
+    const statNameMapping = {
+        hp:'HP',
+        attack:'ATK',
+        defence:'DEF',
+        "special-attack":'SATK',
+        "special-defence":'SDEF',
+        speed:'SPD',
+    } 
+
+    stats.forEach(({ stat , base_stat}) => {
+        const statDiv = document.createElement('div');
+        statDiv.className = 'stats-wrap';
+        statWrapper.appendChild(statDiv);
+
+        createAndAppendElement(statDiv,'p',{
+            className: 'body3-fonts stats',
+            textContent: statNameMapping[stat.name],
+        });
+
+        createAndAppendElement(statDiv,'p',{
+            className: 'body3-fonts',
+            textContent: String(base_stat).padStart(3,'0'),
+        });
+
+        createAndAppendElement(statDiv,'progress',{
+            className: 'progress-bar',
+            value: base_stat,
+            max: 100,
+        });
+    })
+
+    setTypeBackgroundColor(pokemon);
+
+    
 }
