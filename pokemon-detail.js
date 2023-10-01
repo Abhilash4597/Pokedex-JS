@@ -119,6 +119,38 @@ function setTypeBackgroundColor(pokemon){
     }
     .stats-wrap .progress-bar::-webkit-progress-value {
         background-color: ${color};
-    }
-    `
+    }`
+
+    document.head.appendChild(styleTag);
+}
+
+function capitalizeFirstLetter(string){
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
+
+function createAndAppendElement(parent,tag,options ={}){
+    const element = document.createElement(tag);
+    Object.keys(options).forEach((key)=>{
+        element[key] = options[key]
+    });
+    parent.appendChild(element);
+    return element;
+}
+
+function displayPokemonDetails(pokemon){
+    const{name,id,types,weight,height,abilities,stats}=pokemon;
+    const capitalizePokemonName = capitalizeFirstLetter(name);
+
+    document.querySelector('title').textContent = capitalizePokemonName;
+
+    const detailMainElement = document.querySelector('detail-main');
+    detailMainElement.classList.add(name.toLowerCase());
+
+    document.querySelector('name-wrap .name').textContent = capitalizePokemonName;
+
+    document.querySelector('.pokemon-id-wrap .body2-fonts').textContent = `#${string(id).padStart(3,'0')}`
+
+    
+
+
 }
