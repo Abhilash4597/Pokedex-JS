@@ -150,7 +150,22 @@ function displayPokemonDetails(pokemon){
 
     document.querySelector('.pokemon-id-wrap .body2-fonts').textContent = `#${string(id).padStart(3,'0')}`
 
-    
+    const imageElement = document.querySelector('detail-image-wrapper img');
+    imageElement.src = `https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+
+    const typeWrapper = document.querySelector('.power-wrapper');
+    typeWrapper.innerHTML = '';
+
+    types.forEach(({ type }) => {
+        createAndAppendElement(typeWrapper,'p',{
+            className: `body3-fonts type ${type.name}`,
+            textContent: type.name,
+        })
+    })
+
+    document.querySelector('.pokemon-detail-wrap .pokemon-detail p.body3-fonts.weight').textContent = `${weight/10} kg`
+    document.querySelector('.pokemon-detail-wrap .pokemon-detail p.body3-fonts.height').textContent = `${height/10} kg`
+
 
 
 }
