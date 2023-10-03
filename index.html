@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POKEDEX</title>
 
     <link rel="stylesheet" href="style.css" />
     <link
@@ -10,24 +11,21 @@
       href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpe1s-gEBPBl5fYg9vgyhkAEk7Cq6kXfvH4A&usqp=CAU"
       type="image/x-icon" />
 
-    <title>Pokedex JS</title>
-
     <script src="./pokemon.js" defer></script>
-    <script src="./pokemon-detail.js" defer></script>
-    <script src="./search.js"></script>
+    <script src="./search.js" defer></script>
   </head>
   <body>
     <main class="main">
       <header class="header home">
         <div class="container">
           <div class="logo-wrapper">
-            <img src="./Icons/pokeball.svg" alt="pokeball" />
+            <img src="./assets/pokeball.svg" alt="pokeball" />
             <h1>Pokedex</h1>
           </div>
           <div class="search-wrapper">
             <div class="search-wrap">
               <img
-                src="./Icons/search.svg"
+                src="./assets/search.svg"
                 alt="search icon"
                 class="search-icon" />
               <input
@@ -36,7 +34,7 @@
                 placeholder="Search"
                 id="search-input" />
               <img
-                src="./Icons/cross.svg"
+                src="./assets/cross.svg"
                 alt="cross icon"
                 class="search-close-icon"
                 id="search-close-icon" />
@@ -44,7 +42,7 @@
             <div class="sort-wrapper">
               <div class="sort-wrap">
                 <img
-                  src="./Icons/sorting.svg"
+                  src="./assets/sorting.svg"
                   alt="sorting"
                   class="sort-icon"
                   id="sort-icon" />
@@ -71,7 +69,6 @@
           </div>
         </div>
       </header>
-
       <section class="pokemon-list">
         <div class="container">
           <div class="list-wrapper"></div>

@@ -78,7 +78,7 @@ input:focus-visible {
 .featured-img a.arrow.hidden {
   display: none;
 }
-/* --------------------------------------------------------------------------------------------------------------- */
+
 body {
   margin: 0;
   height: 100vh;
@@ -147,7 +147,7 @@ body {
 }
 
 .search-wrap>input {
-  width: 95%;
+  width: 60%;
   border: none;
 }
 
@@ -165,7 +165,6 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  cursor: pointer;
 }
 
 .search-close-icon {
@@ -294,7 +293,7 @@ body {
   height: 100%;
 }
 
-/* ----------------------------------------------- detail page ----------------------------------------------- */
+/* detail page */
 
 .detail-main .header {
   padding: 20px 20px 24px 20px;
